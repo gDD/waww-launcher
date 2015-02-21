@@ -1,0 +1,90 @@
+<DOCTYPE html>
+<html>
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                font-family: "Hiragino Sans GB", sans-serif;
+            }
+            #ww-launcher {
+                max-width: 480px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 4em;
+            }
+            fieldset {
+                border: 0;
+                padding: 0;
+                margin: 0;
+            }
+            legend {
+                text-align: center;
+                font-size: 28px;
+                margin-bottom: 1.5em;
+            }
+            #username {
+                display: block;
+                width: 480px;
+                font-size: 24px;
+                padding: .5em;
+                text-align: center;
+                margin-bottom: .5em;
+            }
+            #username:focus {
+            }
+            #launch {
+                display: block;
+                width: 480px;
+                font-size: 24px;
+                padding: 10px 0 10px 0;
+                text-align: center;
+                border: 0;
+                background: cyan;
+                border-bottom: 4px solid green;
+            }
+            #launch:hover {
+                background: red;
+            }
+            #launch:active {
+                background: cyan;
+                padding-top: 12px;
+                padding-bottom: 12px;
+                border-bottom: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="ww-launcher" method="GET" action="http://www.taobao.com/webww/index.php">
+            <fieldset>
+                <legend>淘宝/天猫网页旺旺启动器</legend>
+                <input type="hidden" id="taobao-user-id" name="touid" value="" />
+                <label>
+                    <input type="text" id="username" placeholder="旺旺用户名：mayun" />
+                </label>
+                <input type="submit" id="launch" value="开启网页旺旺聊天" />
+            </fieldset>
+        </form>
+        <p>淘宝/天猫官网上的旺旺聊天按钮 was broken</p>
+        <p>旺旺用户名支持中文，并且也支持“:”分割的客服</p>
+        <script>
+            var launcher = document.getElementById("ww-launcher");
+            launcher.addEventListener("submit", function(event) {
+                var username = document.getElementById("username");
+                var taobaoUserId = document.getElementById("taobao-user-id");
+
+                if (!username.value) {
+                    alert("fail");
+
+                    event.preventDefault();
+
+                    return;
+                }
+
+                taobaoUserId.value = "cntaobao" + username.value;
+            }, false);
+        </script>
+    </body>
+</html>
