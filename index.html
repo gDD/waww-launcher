@@ -17,11 +17,47 @@
             font-family: "Hiragino Sans GB", sans-serif;
         }
 
+        body::before {
+            content: "哇";
+            display: block;
+            font-size: 200px;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            transform: rotate(20deg);
+            color: rgb(204, 204, 204);
+
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            top: 50px;
+            margin-left: -320px;
+        }
+
+        body::after {
+            content: "哇";
+            display: block;
+            font-size: 400px;
+            width: 400px;
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            transform: rotate(-30deg);
+            color: rgb(204, 204, 204);
+
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            top: 20px;
+            margin-left: -50px;
+        }
+
         #waww-launcher {
             max-width: 480px;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 4em;
+            padding-top: 100px;
         }
 
         fieldset {
