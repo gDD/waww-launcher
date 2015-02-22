@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <title>阿里旺旺网页版启动器 (Web Aliwangwang Launcher)</title>
     <style>
         *, input {
             box-sizing: border-box;
@@ -15,7 +17,7 @@
             font-family: "Hiragino Sans GB", sans-serif;
         }
 
-        #aww-launcher {
+        #waww-launcher {
             max-width: 480px;
             margin-left: auto;
             margin-right: auto;
@@ -99,20 +101,20 @@
 </head>
 <body>
 <!-- 淘宝/天猫官网上的旺旺聊天按钮 was broken -->
-<form id="aww-launcher" target="_blank" method="GET" action="http://www.taobao.com/webww/index.php">
+<form id="waww-launcher" target="_blank" method="GET" action="http://www.taobao.com/webww/index.php">
     <fieldset>
-        <legend>淘宝/天猫网页旺旺启动器</legend>
+        <legend>淘宝/天猫阿里旺旺网页版启动器</legend>
         <input type="hidden" name="siteid" value="cntaobao"/>
         <input type="hidden" name="charset" value="utf-8"/>
 
         <div class="entrance">
             <input type="text" id="username" name="touid" placeholder="旺旺用户名[:客服名]"/>
-            <img id="online-status" class="online-status"/>
+            <img id="online-status" class="online-status" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Aliwangwang Online Status Indicator" />
         </div>
         <input type="submit" id="launch" value="开启网页旺旺聊天"/>
     </fieldset>
 </form>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.3.min.js"></script>
 <script>
     $(function () {
         var $entrance = $(".entrance");
@@ -130,11 +132,12 @@
             // Refer to http://www.taobao.com/wangwang/2010_fp/world.php
             // There are only two status icon: online and offline, mobile online seems deprecated by Taobao.
             // Chrome 40 caches the URL.
+            // https://amos.alicdn.com is not supported, we should notice user if this page is served via HTTPS.
             $onlineStatus.attr("src", "http://amos.alicdn.com/realonline.aw?v=2&uid=" + encodeURIComponent($username.val()) + "&site=cntaobao&s=2&charset=utf-8");
             $entrance.addClass("open");
         });
 
-        $("#aww-launcher").on("submit", function ($e) {
+        $("#waww-launcher").on("submit", function ($e) {
             if (!$username.val()) {
                 $e.preventDefault();
                 $username.focus();
